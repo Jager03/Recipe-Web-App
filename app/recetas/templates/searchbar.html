@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contentet %}
+  <table class="table table-striped">
+    <tr>
+        <td><img src="{{media_url}}{{receta.foto}}" class= "rounded" style="width: 100pt;"></td>
+        <td scope="row"><a href="/detalles/{{receta.nombre}}">{{receta.nombre}}</a></td> 
+    </tr>
+    
+  </table>
+{% endblock%}

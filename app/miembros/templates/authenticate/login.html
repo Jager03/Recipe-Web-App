@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contentet %}
+    <h1>Login</h1>
+            <form action="" method=POST>
+                {% csrf_token %}
+
+                {% if messages %}
+                    {%for message in messages %}
+                    <div class="alert alert-warning" role="alert">
+                        {{message}}
+                    </div>
+                        
+                    {% endfor %}
+                {% endif %}
+
+                <br/><br/>
+
+                <form>
+                    <div>
+                        <div class="form-group"style="padding-bottom: 10px;">
+                            <label for="exampleInputEmail1">Nombre de usuario</label>
+                            <input type="text" class="form-control" name="username" aria-describedby="emailHelp" placeholder="Usuario">
+                        </div>
+
+                        <br/>
+
+                        <div class="form-group" style="padding-bottom: 10px;">
+                            <label for="exampleInputPassword1">Contraseña</label>
+                            <input type="password" class="form-control" name="password" placeholder="Contraseña">
+                        </div>
+                        <br/>
+                        <button type="submit" class="btn btn-primary">entrar</button>                    
+                    </div>
+                    
+                </form>
+            </form>
+ 
+{% endblock%}
+

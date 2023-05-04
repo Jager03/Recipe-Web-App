@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contentet %}
+  <center>
+    <div>
+        <h1>Agrega un ingrediente</h1>
+        <br></br>
+        {% if enviado %}
+
+            Ingrediente registrado correctamente!  
+            <a href="/addIng">Añade otro ingredientes:</a>
+
+        
+        {% else %}
+
+        <form action="" method=POST>
+            {% csrf_token %}
+
+            {{form.as_p}}
+
+            <input type="submit" value="Submit" class="btn btn-secondary">
+        </form>
+
+        {% endif %}
+    </div>
+</center>
+{% endblock%}
+

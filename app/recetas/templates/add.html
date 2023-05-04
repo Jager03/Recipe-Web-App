@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block contentet %}
+
+  {% if user.is_authenticated %}
+    {% if user.is_superuser%}
+      <center>
+        <div>
+            <h1>Añade una receta</h1>
+            <br></br>
+            {% if enviado %}
+              {% if messages %}
+                {%for message in messages %}
+                  <div class="alert alert-warning" role="alert">
+                    {{message}}
+                  </div>
+                {% endfor %}
+              {% endif %}
+
+                Tu receta se envio correctamente! 
+                <a href="/addIng">Agrega los ingredientes</a>
+
+            
+            {% else %}
+
+            <form action="" method=POST>
+                {% csrf_token %}
+
+                {{form.as_p}}
+
+                <input type="submit" value="Añadir" class="btn btn-secondary">
+            </form>
+
+            {% endif %}
+        </div>
+      </center>
+    {% else %}
+      <h1>Tienes que ser un superusuario para añadir receta</h1>
+    {% endif %}
+
+  {% else %}
+    
+    <h1>Tienes que estar loggeado para añadir recetas</h1>
+    <a href="/miembros/login_user">Loggeate aqui</a>
+
+  {% endif %}
+{% endblock%}
+

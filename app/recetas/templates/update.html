@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contentet %}
+  <center>
+    <div>
+        <h1>Pagina de update de {{receta.nombre}}</h1>
+        <form action="" method=POST style="padding-top: 40px;">
+            {% csrf_token %}
+
+            {{form.as_p}}
+
+            <input type="submit" value="Actualizar" class="btn btn-secondary">
+        </form>
+    </div>
+    
+  </center>
+{% endblock%}
+

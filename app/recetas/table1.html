@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    </head>
+    <body>
+        <table class="default">
+            {%for receta in recetas %}
+            <tr>
+                <th scope="row"><a href="/detalles">{{receta.nombre}}</a></th> 
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>

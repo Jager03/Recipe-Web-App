@@ -1,0 +1,47 @@
+<table class="table table-striped">
+    {%for receta in recetas %}
+        <tr>
+            <td><img src="{{media_url}}{{receta.foto}}" class= "rounded" style="width: 100pt;"></td>
+            <td scope="row"><a href="/detalles/{{receta.nombre}}">{{receta.nombre}}</a></td>
+            <td allign="right">
+                
+                <div class="vstack gap-2 col-md-5 mx-auto">
+                    {% if user.is_staff %}
+                        <a class="btn btn-secondary" href="/update/{{receta.nombre}}">actualizar</a>
+                    {% endif %}
+
+                    {% if user.is_superuser%}
+                        <!-- La solo se queda con la primera receta del for. Por lo tanto no hay forma de que la ventana modal sepa que receta eliminar
+                            
+                            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                eliminar
+                            </button>
+
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title">Confirmacion de eliminacion</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                    <p>Esta usted seguro que quiere eliminar la receta {{receta.nombre}}</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                    <a class="btn btn-primary" href="/delete/{{receta.nombre}}">confirmar</a>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        -->
+                       
+                        <a class="btn btn-outline-danger" href="/delete/{{receta.nombre}}">eliminar</a>                   
+                    {% endif %}
+                </div>
+                
+            </td> 
+        </tr>  
+    {% endfor %}
+</table>
+
+
